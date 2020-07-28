@@ -8,6 +8,7 @@ module.exports = jwt({
 }).unless({
     path:[
         '/',
-        '/user/login'
+        '/user/login',
+        '/article/getAllList'
     ]
 })

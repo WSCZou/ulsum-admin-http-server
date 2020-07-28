@@ -1,6 +1,6 @@
 const { env } = require('./env')
-const UPLOAD_PATH = env === 'dev' ? 'D:/ulsum_admin/admin-upload-ulsum' : '/root/upload/admin-upload/'
-const UPLOAD_URL ='https:/ulsum.xyz'
+const UPLOAD_PATH = env === 'dev' ? 'D:/ulsum_admin/admin-upload-ulsum' : '/root/nginx/upload/admin-upload/'
+const UPLOAD_URL  = env === 'dev' ? 'https:/ulsum.xyz': 'http://175.24.115.65/admin-upload'
 
 module.exports = {
     CODE_ERROR: -1,

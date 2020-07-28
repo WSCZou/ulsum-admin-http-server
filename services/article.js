@@ -131,9 +131,14 @@ function deleteArticle(articleId){
             const articleObj = new Article(null,article)
             //console.log('新建文章对象：',articleObj)
             const sql = `delete from article where articleId='${articleId}'`
+            const updateSql=`UPDATE article SET sortId=sortId-1 where sortId>${articleObj.sortId}`
             querySql(sql).then(() => {
                 articleObj.reset()//在服务器删除图片文件
-                resolve()
+            }).then(()=>{
+                querySql(updateSql).then(()=>{
+                    resolve()
+                })
+                
             })
         }else{
             reject(new Error('文章不存在'))

@@ -12,9 +12,7 @@ const article = require('../services/article')
 
 const router = express.Router()
 
-router.post('/upload',
-multer({dest:`${UPLOAD_PATH}/img`}).single('file'),
-function(req,res,next){
+router.post('/upload',multer({dest:`${UPLOAD_PATH}/img`}).single('file'),function(req,res,next){
     if(!req.file || req.file.length === 0){
         new Result('上传图片失败').fail(res)
     }
